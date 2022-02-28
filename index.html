@@ -1,0 +1,1511 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SatuStore</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>SatuStore</h1>
+    <div class="app-desc">Sells fruits and berries, all you can imagine!</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="t9visa03@students.oamk.fi">t9visa03@students.oamk.fi</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/shop</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Categories">Categories</a></h4>
+  <ul>
+  <li><a href="#getCategories"><code><span class="http-method">get</span> /categories/</code></a></li>
+  <li><a href="#getCategoriesId"><code><span class="http-method">get</span> /categories/{id}</code></a></li>
+  </ul>
+  <h4><a href="#Customers">Customers</a></h4>
+  <ul>
+  <li><a href="#deleteCustomersId"><code><span class="http-method">delete</span> /customers/{id}</code></a></li>
+  <li><a href="#getCustomers"><code><span class="http-method">get</span> /customers/</code></a></li>
+  <li><a href="#getCustomersId"><code><span class="http-method">get</span> /customers/{id}</code></a></li>
+  <li><a href="#getCustomersIdOrders"><code><span class="http-method">get</span> /customers/{id}/orders/</code></a></li>
+  <li><a href="#patchCustomersId"><code><span class="http-method">patch</span> /customers/{id}</code></a></li>
+  <li><a href="#postCustomers"><code><span class="http-method">post</span> /customers/</code></a></li>
+  <li><a href="#postCustomersIdOrders"><code><span class="http-method">post</span> /customers/{id}/orders/</code></a></li>
+  <li><a href="#putCustomersId"><code><span class="http-method">put</span> /customers/{id}</code></a></li>
+  </ul>
+  <h4><a href="#Orders">Orders</a></h4>
+  <ul>
+  <li><a href="#deleteOrdersId"><code><span class="http-method">delete</span> /orders/{id}</code></a></li>
+  <li><a href="#deleteOrdersOidItemsIid"><code><span class="http-method">delete</span> /orders/{oid}/items/{iid}</code></a></li>
+  <li><a href="#getOrders"><code><span class="http-method">get</span> /orders/</code></a></li>
+  <li><a href="#getOrdersId"><code><span class="http-method">get</span> /orders/{id}</code></a></li>
+  <li><a href="#getOrdersIdItems"><code><span class="http-method">get</span> /orders/{id}/items/</code></a></li>
+  <li><a href="#getOrdersOidItemsIid"><code><span class="http-method">get</span> /orders/{oid}/items/{iid}</code></a></li>
+  <li><a href="#postOrdersIdActionsCancel"><code><span class="http-method">post</span> /orders/{id}/actions/cancel</code></a></li>
+  <li><a href="#postOrdersIdActionsPurchase"><code><span class="http-method">post</span> /orders/{id}/actions/purchase</code></a></li>
+  <li><a href="#postOrdersIdItems"><code><span class="http-method">post</span> /orders/{id}/items/</code></a></li>
+  </ul>
+  <h4><a href="#Products">Products</a></h4>
+  <ul>
+  <li><a href="#deleteProductsId"><code><span class="http-method">delete</span> /products/{id}</code></a></li>
+  <li><a href="#getProducts"><code><span class="http-method">get</span> /products/</code></a></li>
+  <li><a href="#getProductsId"><code><span class="http-method">get</span> /products/{id}</code></a></li>
+  <li><a href="#patchProductsId"><code><span class="http-method">patch</span> /products/{id}</code></a></li>
+  <li><a href="#postProducts"><code><span class="http-method">post</span> /products/</code></a></li>
+  <li><a href="#putProductsId"><code><span class="http-method">put</span> /products/{id}</code></a></li>
+  </ul>
+
+  <h1><a name="Categories">Categories</a></h1>
+  <div class="method"><a name="getCategories"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /categories/</code></pre></div>
+    <div class="method-summary">Lists all the product categories (<span class="nickname">getCategories</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CategoryList">CategoryList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": true}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    List of categories
+        <a href="#CategoryList">CategoryList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCategoriesId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /categories/{id}</code></pre></div>
+    <div class="method-summary">Get a category by id (<span class="nickname">getCategoriesId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a category </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ProductList">ProductList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Collection of products
+        <a href="#ProductList">ProductList</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Customers">Customers</a></h1>
+  <div class="method"><a name="deleteCustomersId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /customers/{id}</code></pre></div>
+    <div class="method-summary">Delete a customer (<span class="nickname">deleteCustomersId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a customer </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCustomers"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers/</code></pre></div>
+    <div class="method-summary">Lists all the customers (<span class="nickname">getCustomers</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CustomerList">CustomerList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Collection of customers
+        <a href="#CustomerList">CustomerList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCustomersId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers/{id}</code></pre></div>
+    <div class="method-summary">Get a customer by id (<span class="nickname">getCustomersId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a customer </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Customer">Customer</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Customer details
+        <a href="#Customer">Customer</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCustomersIdOrders"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers/{id}/orders/</code></pre></div>
+    <div class="method-summary">Get the orders of a customer (<span class="nickname">getCustomersIdOrders</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a customer </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#OrderList">OrderList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Collection of orders
+        <a href="#OrderList">OrderList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="patchCustomersId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /customers/{id}</code></pre></div>
+    <div class="method-summary">Update a customer (<span class="nickname">patchCustomersId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a customer </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#CustomerPatch">CustomerPatch</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Customer">Customer</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Customer details
+        <a href="#Customer">Customer</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postCustomers"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /customers/</code></pre></div>
+    <div class="method-summary">Create a customer (<span class="nickname">postCustomers</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Customer">Customer</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Customer">Customer</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Customer details
+        <a href="#Customer">Customer</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postCustomersIdOrders"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /customers/{id}/orders/</code></pre></div>
+    <div class="method-summary">Create an order for a customer (<span class="nickname">postCustomersIdOrders</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a customer </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Order">Order</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Order details
+        <a href="#Order">Order</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putCustomersId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /customers/{id}</code></pre></div>
+    <div class="method-summary">Replace a customer by new data (<span class="nickname">putCustomersId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a customer </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Customer">Customer</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Customer">Customer</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Customer details
+        <a href="#Customer">Customer</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Orders">Orders</a></h1>
+  <div class="method"><a name="deleteOrdersId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /orders/{id}</code></pre></div>
+    <div class="method-summary">Delete an order (<span class="nickname">deleteOrdersId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteOrdersOidItemsIid"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /orders/{oid}/items/{iid}</code></pre></div>
+    <div class="method-summary">Delete an item of an order (<span class="nickname">deleteOrdersOidItemsIid</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">oid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div><div class="param">iid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an item </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getOrders"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /orders/</code></pre></div>
+    <div class="method-summary">Lists all the orders (<span class="nickname">getOrders</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div><div class="param">state (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; State of the order </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#OrderList">OrderList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Collection of orders
+        <a href="#OrderList">OrderList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getOrdersId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /orders/{id}</code></pre></div>
+    <div class="method-summary">Get an order by id (<span class="nickname">getOrdersId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Order">Order</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Order details
+        <a href="#Order">Order</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getOrdersIdItems"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /orders/{id}/items/</code></pre></div>
+    <div class="method-summary">Get the items of an order (<span class="nickname">getOrdersIdItems</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Items">Items</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Collection of items
+        <a href="#Items">Items</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getOrdersOidItemsIid"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /orders/{oid}/items/{iid}</code></pre></div>
+    <div class="method-summary">Get an item of an order (<span class="nickname">getOrdersOidItemsIid</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">oid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div><div class="param">iid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an item </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Item">Item</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Item details
+        <a href="#Item">Item</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postOrdersIdActionsCancel"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /orders/{id}/actions/cancel</code></pre></div>
+    <div class="method-summary">Cancel an order (<span class="nickname">postOrdersIdActionsCancel</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postOrdersIdActionsPurchase"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /orders/{id}/actions/purchase</code></pre></div>
+    <div class="method-summary">Purchase an order (<span class="nickname">postOrdersIdActionsPurchase</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postOrdersIdItems"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /orders/{id}/items/</code></pre></div>
+    <div class="method-summary">Add an item to an order (<span class="nickname">postOrdersIdItems</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of an order </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Item">Item</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Item">Item</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Item details
+        <a href="#Item">Item</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Products">Products</a></h1>
+  <div class="method"><a name="deleteProductsId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /products/{id}</code></pre></div>
+    <div class="method-summary">Delete a product (<span class="nickname">deleteProductsId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a product </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProducts"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /products/</code></pre></div>
+    <div class="method-summary">Lists all the products (<span class="nickname">getProducts</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ProductList">ProductList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{"empty": false}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Collection of products
+        <a href="#ProductList">ProductList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProductsId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /products/{id}</code></pre></div>
+    <div class="method-summary">Get a product by id (<span class="nickname">getProductsId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a product </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Product description
+        <a href="#Product">Product</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="patchProductsId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /products/{id}</code></pre></div>
+    <div class="method-summary">Update one or more properties of a product (<span class="nickname">patchProductsId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a product </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#ProductPatch">ProductPatch</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Product description
+        <a href="#Product">Product</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postProducts"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /products/</code></pre></div>
+    <div class="method-summary">Create a product (<span class="nickname">postProducts</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Product">Product</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">default</h4>
+    Successful
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putProductsId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /products/{id}</code></pre></div>
+    <div class="method-summary">Replace a product by new data (<span class="nickname">putProductsId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id of a product </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Product">Product</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{}</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Product description
+        <a href="#Product">Product</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ActionDescription"><code>ActionDescription</code> - </a></li>
+    <li><a href="#Actions"><code>Actions</code> - </a></li>
+    <li><a href="#CategoryEntry"><code>CategoryEntry</code> - </a></li>
+    <li><a href="#CategoryList"><code>CategoryList</code> - </a></li>
+    <li><a href="#Customer"><code>Customer</code> - </a></li>
+    <li><a href="#CustomerEntry"><code>CustomerEntry</code> - </a></li>
+    <li><a href="#CustomerList"><code>CustomerList</code> - </a></li>
+    <li><a href="#CustomerPatch"><code>CustomerPatch</code> - </a></li>
+    <li><a href="#File"><code>File</code> - </a></li>
+    <li><a href="#Item"><code>Item</code> - </a></li>
+    <li><a href="#ItemList"><code>ItemList</code> - </a></li>
+    <li><a href="#Items"><code>Items</code> - </a></li>
+    <li><a href="#Meta"><code>Meta</code> - </a></li>
+    <li><a href="#NamePriceCategory"><code>NamePriceCategory</code> - </a></li>
+    <li><a href="#Order"><code>Order</code> - </a></li>
+    <li><a href="#OrderEntry"><code>OrderEntry</code> - </a></li>
+    <li><a href="#OrderList"><code>OrderList</code> - </a></li>
+    <li><a href="#Product"><code>Product</code> - </a></li>
+    <li><a href="#ProductEntry"><code>ProductEntry</code> - </a></li>
+    <li><a href="#ProductList"><code>ProductList</code> - </a></li>
+    <li><a href="#ProductPatch"><code>ProductPatch</code> - </a></li>
+    <li><a href="#categories"><code>categories</code> - </a></li>
+    <li><a href="#customers"><code>customers</code> - </a></li>
+    <li><a href="#orders"><code>orders</code> - </a></li>
+    <li><a href="#products"><code>products</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ActionDescription"><code>ActionDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Description of a possible action on the resource</div>
+    <div class="field-items">
+      <div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: /shop/orders/7959/actions/purchase</span></div>
+<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Actions"><code>Actions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Actions that the order supports</div>
+    <div class="field-items">
+      <div class="param">purchase (optional)</div><div class="param-desc"><span class="param-type"><a href="#ActionDescription">ActionDescription</a></span>  </div>
+<div class="param">cancel (optional)</div><div class="param-desc"><span class="param-type"><a href="#ActionDescription">ActionDescription</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CategoryEntry"><code>CategoryEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Category entry</div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the category </div>
+          <div class="param-desc"><span class="param-type">example: Fruits</span></div>
+<div class="param">category_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: /shop/categories/Fruits</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CategoryList"><code>CategoryList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>List of categories</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Customer"><code>Customer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Customer details</div>
+    <div class="field-items">
+      <div class="param">firstname </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Fred</span></div>
+<div class="param">lastname </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Meyers</span></div>
+<div class="param">orders_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to the orders of the customer </div>
+<div class="param">customer_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to the customer resource </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CustomerEntry"><code>CustomerEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Entry of a collection of customers</div>
+    <div class="field-items">
+      <div class="param">firstname </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Susan</span></div>
+<div class="param">lastname </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Tanner</span></div>
+<div class="param">customer_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: /shop/customer/642</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CustomerList"><code>CustomerList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Collection of customers</div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+<div class="param">customers (optional)</div><div class="param-desc"><span class="param-type"><a href="#customers">customers</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CustomerPatch"><code>CustomerPatch</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Any properties of the customer can be updated e.g. { &quot;firstname&quot;: &quot;Kai&quot; }</div>
+    <div class="field-items">
+      <div class="param">firstname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Tiina</span></div>
+<div class="param">lastname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Virtanen</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="File"><code>File</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Item"><code>Item</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Item details</div>
+    <div class="field-items">
+      <div class="param">quantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 5.0</span></div>
+<div class="param">price </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Price of a good </div>
+          <div class="param-desc"><span class="param-type">example: 4.5</span></div>
+<div class="param">item_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">product (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">product_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">order_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ItemList"><code>ItemList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Collection of items</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Items"><code>Items</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Collection of items</div>
+    <div class="field-items">
+      <div class="param">order_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: /shop/orders/1432</span></div>
+<div class="param">items </div><div class="param-desc"><span class="param-type"><a href="#ItemList">ItemList</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Meta"><code>Meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata about a collection of resources.</div>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total number of entries </div>
+          <div class="param-desc"><span class="param-type">example: 22</span></div>
+<div class="param">limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> How many entries are delivered in one response </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of the page within the results </div>
+          <div class="param-desc"><span class="param-type">example: 2</span></div>
+<div class="param">previous_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL to the previous page of results </div>
+          <div class="param-desc"><span class="param-type">example: /shop/products/?page=1&limit=10</span></div>
+<div class="param">next_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL to the next page of results </div>
+          <div class="param-desc"><span class="param-type">example: /shop/products/?page=3&limit=10</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NamePriceCategory"><code>NamePriceCategory</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Order"><code>Order</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Order details</div>
+    <div class="field-items">
+      <div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">updatedAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State of the order </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">created</div><div class="param-enum">ordered</div><div class="param-enum">delivered</div><div class="param-enum">canceled</div>
+<div class="param">customer_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: /shop/customers/342</span></div>
+<div class="param">actions </div><div class="param-desc"><span class="param-type"><a href="#Actions">Actions</a></span>  </div>
+<div class="param">items_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">total (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Price of a good </div>
+          <div class="param-desc"><span class="param-type">example: 4.5</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OrderEntry"><code>OrderEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>List entry of an order</div>
+    <div class="field-items">
+      <div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State of the order </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">created</div><div class="param-enum">ordered</div><div class="param-enum">delivered</div><div class="param-enum">canceled</div>
+<div class="param">order_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: /shop/orders/7832</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OrderList"><code>OrderList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Collection of orders</div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+<div class="param">orders (optional)</div><div class="param-desc"><span class="param-type"><a href="#orders">orders</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Product"><code>Product</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Product description</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a product </div>
+          <div class="param-desc"><span class="param-type">example: Berries</span></div>
+<div class="param">price </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Price of a good </div>
+          <div class="param-desc"><span class="param-type">example: 4.5</span></div>
+<div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Category of products e.g. Fruits </div>
+          <div class="param-desc"><span class="param-type">example: Fruits</span></div>
+<div class="param">category_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ProductEntry"><code>ProductEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Entry of a product collection</div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the product </div>
+<div class="param">product_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ProductList"><code>ProductList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Collection of products</div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
+<div class="param">products (optional)</div><div class="param-desc"><span class="param-type"><a href="#products">products</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ProductPatch"><code>ProductPatch</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Structure to patch a product. All the properties are optional.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a product </div>
+          <div class="param-desc"><span class="param-type">example: Berries</span></div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Price of a fruit </div>
+          <div class="param-desc"><span class="param-type">example: 4.5</span></div>
+<div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Category of products e.g. Fruits </div>
+          <div class="param-desc"><span class="param-type">example: Fruits</span></div>
+<div class="param">category_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="categories"><code>categories</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="customers"><code>customers</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="orders"><code>orders</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="products"><code>products</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
